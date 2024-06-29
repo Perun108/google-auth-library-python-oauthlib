@@ -237,7 +237,7 @@ class Flow(object):
                 specify the ``state`` when constructing the :class:`Flow`.
         """
         kwargs.setdefault("access_type", "offline")
-        if self.autogenerate_code_verifier:
+        if self.code_verifier is None and self.autogenerate_code_verifier:
             chars = ascii_letters + digits + "-._~"
             rnd = SystemRandom()
             random_verifier = [rnd.choice(chars) for _ in range(0, 128)]
